@@ -48,7 +48,16 @@ const columns = [
   {
     field: 'roi',
     headerName: 'ROI $',
-    width:80
+    width:80,
+    valueGetter: (params) =>
+    `${params.row.rev-params.row.spend}`
+  },
+  {
+    field: 'roiP',
+    headerName: 'ROI %',
+    width:80,
+    valueGetter: (params) =>
+    `${Math.round(Math.min(params.row.rev/params.row.spend, params.row.spend/params.row.rev)*100)}%`
   },
   {
     field: 'dspend',
